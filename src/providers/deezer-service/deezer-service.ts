@@ -56,4 +56,12 @@ export class DeezerServiceProvider {
      console.log(this.deezerAPI+"playlist/"+playlistID+"/tracks");
     return this.http.get(this.deezerAPI+"playlist/"+playlistID+"/tracks");
   }// fin de getPlayListSongs
+
+  getSongs(name){
+    // console.log("peticion");
+    return this.http.get(this.deezerAPI+"search?q=track:/'"+name+"'");    
+  }
+  getSongById(id){
+    return this.http.get(this.deezerAPI+"track/"+id);        
+  }//
 }

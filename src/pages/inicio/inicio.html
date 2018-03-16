@@ -12,28 +12,24 @@
   	</button>
     <ion-title>Inicio</ion-title>
   </ion-navbar>
-
+  <ion-searchbar (ionInput)="buscar($event)"></ion-searchbar>
 </ion-header>
 
 
 <ion-content padding>
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-  <img src="assets/imgs/icon-socialnetwork.jpg">
-	<h1 class="titulo">Ionic Demo</h1>
-  <p class="texto">
-    Aplicacion con ionic siguiendo un curso de 17 videos,
-  </p>
-  <ion-grid>
-    <ion-row>
-      <button ion-col col-6 ion-button  icon-left color="danger">
-        <ion-icon name="logo-youtube"></ion-icon>
-        YouTube
-      </button>
-      <button ion-col col-6 ion-button  icon-left color="dark">
-        <ion-icon name="logo-github"></ion-icon>
-        Github
-      </button>
-    </ion-row>
+  <ion-grid fixed>
+    <audio src="{{cancion.link}}" *ngIf="cancion!=null" controls="true"></audio>
+    <audio src="{{cancion.preview}}" *ngIf="cancion!=null" controls="true"></audio>
+    
+  	<ion-list ion-row>
+  		<ion-item ion-col col-12 col-sm-6 col-md-4 (click)=getSongId(cancionBuscada.id) *ngFor="let cancionBuscada of cancionesBuscadas">      
+  		<!-- <ion-item ion-col col-12 col-sm-6 col-md-4 (click)="goToPlayList(usuario)" *ngFor="let usuario of usuarios"> -->
+  			<ion-avatar item-start>
+        			<!-- <img src="{{cancionBuscada.picture_small}}"> -->
+  		    </ion-avatar>
+  		    <span>{{cancionBuscada.title}}</span>
+  		</ion-item>
+  		
+  	</ion-list>
   </ion-grid>
-
 </ion-content>
