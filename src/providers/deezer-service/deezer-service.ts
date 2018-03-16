@@ -15,9 +15,9 @@ export class DeezerServiceProvider {
 	public deezerAPI:string;
   constructor(public http: HttpClient) {
   	// direccion que se usara en la app compilada
-  	this.deezerAPI="https://api.deezer.com/";
+  	// this.deezerAPI="https://api.deezer.com/";
   	// proxi, se usa para la app en desarrollo en local host
-  	// this.deezerAPI="deezerAPI/";
+  	this.deezerAPI="deezerAPI/";
     console.log('Hello DeezerServiceProvider Provider');
   }
 
@@ -43,7 +43,7 @@ export class DeezerServiceProvider {
   	// });
   // return this.http.get(this.deezerAPI+"user/"+userID).subscribe(data=>{});
   console.log(this.deezerAPI+"user/"+userID);
-  return this.http.get(this.deezerAPI+"user/"+userID);	
+  return this.http.get(this.deezerAPI+"user/"+userID);
   }// fin de getDetalleUsuario
 
   getUsuarioPlayList(userID){
